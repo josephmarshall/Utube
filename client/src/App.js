@@ -18,6 +18,7 @@ const App = () => (
       <Container>
         <Switch>
           <ProtectedRoute exact path="/" component={Home} />
+          <Route exact path='/Video' component={Video} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/videos/new" component={VideoForm} />
           <Route exact path="/register" component={Register} />

@@ -43,8 +43,8 @@ const { video } = this.state
       </div>
       <div>{video.user_id}</div>
       <div style={{display: "flex"}}>
-        <div style={{width: "75%"}}>
-          <Comments />
+        <div style={{width: "75%"}}
+          <Comments video_id={this.state.video.id} />
         </div>
         <div>
           <OtherVideos/>
