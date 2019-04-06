@@ -13,14 +13,20 @@ class VideoForm extends React.Component {
         const u_id = this.props.auth.user.id
         const {match: { params: { id } }, history: { push } } = this.props
         const video = { ...this.state, user_id: u_id }
+        debugger
         axios.post('/api/videos', video)
-            .then( res => push(`/videos/${res.data.id}`))
+            .then( res => push("/"))
     }
 
     render() {
         const { title, description, } = this.state
         return(
             <>
+            <div style={{ margin:"20px", }}>
+            <Header as="h1">
+                New Video
+            </Header>
+            </div>
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group widths="equal">
                     <Form.Input 
@@ -47,8 +53,8 @@ class VideoForm extends React.Component {
 
 const ConnectedVideoForm = (props) => (
     <AuthConsumer>
-        { auth =>
-            <VideoForm {...this.props} auth={auth} />
+        {auth =>
+            <VideoForm {...props} auth={auth} />
         }
     </AuthConsumer>
 )
