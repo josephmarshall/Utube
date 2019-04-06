@@ -37,13 +37,17 @@ class Comments extends React.Component{
             placeholder='Comment'
             value={body}
             onChange={this.handleChange}
-          />
+            />
           <Form.Button color='blue' onClick={this.handleSubmit}>Submit</Form.Button>
-          {this.props.comments.map(c=><Car style={{ height: '4em'}}>{c.body}{c.user_id === user_id && <div><Button onClick={()=>editComment(c.id)}>edit</Button><Button onClick={(
-          )=>deleteComment(c.id)
-          }>delete</Button></div>}</div>)}
+            </Form>
+          {this.props.comments.map(c=><Card style={{ height: '4em'}}>{c.body}{c.user_id === user_id && 
 
-        </Form>
+          <div><Button onClick={()=>editComment(c.id)}>edit</Button><Button onClick={(
+          )=>deleteComment(c.id)
+          }>delete</Button></div>}
+          
+          </Card>)}
+
       </div>
     )
   }
