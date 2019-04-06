@@ -1,6 +1,6 @@
 import React from 'react'
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Menu, } from 'semantic-ui-react'
+import { Segment, Menu, Button, Icon } from 'semantic-ui-react'
 import { Link, withRouter, } from 'react-router-dom'
 
 class Navbar extends React.Component {
@@ -11,10 +11,16 @@ class Navbar extends React.Component {
     if (user) {
       return (
         <Menu.Menu position='right'>
+            <Menu.Item>
+              <Button size="mini" color="red"> Upload Video</Button>
+            </Menu.Item>
           <Menu.Item
-            name='logout'
             onClick={ () => handleLogout(this.props.history) }
-          />
+          >
+          <Button icon size="mini" color="red"> 
+            <Icon name="sign-out" />
+          </Button>
+          </Menu.Item>
         </Menu.Menu>
       )
     } else {
@@ -45,10 +51,8 @@ class Navbar extends React.Component {
         <Menu pointing secondary>
           <Link to='/'>
             <Menu.Item
-              name='home'
-              id='home'
-              active={this.props.location.pathname === '/'}
-            />
+              Icon={<img width='50' height='25' src="https://imgur.com/a/MS0dxCo?" />}
+              active={this.props.location.pathname === '/'} />
           </Link>
             { this.rightNavItems() }
         </Menu>
