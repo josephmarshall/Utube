@@ -16,15 +16,20 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <div style={{display: "flex"}}>
+        <div style={{display: "flex", flexWrap: "wrap"}}>
           {this.state.videos.map(v=> 
-            <div style={{margin: "20px"}}> 
+            <div style={{margin: "20px", zIndex: "2", border: "solid black 1px", textAlign: "Center"}}> 
               <Link to={`/video/${v.id}`}>    
-                <div style={{width: "190px", height: "160px", border: "solid black 1px"}}>
-                  <img src={v.description}>
-                  </img>
+                <div style={{}}>
+                  <iframe src={v.description} controls={0} style={{zIndex: "1"}} >
+                  </iframe>
                 </div>
-                {v.title}
+                <div style={{display: "flex", width: "100%"}}>
+                <div style={{fontSize: "2em", fontWeight: "bold", padding: "10px", color: "black"}}>
+                {v.title} 
+                </div>
+                <div style={{fontSize: "1em", color: "black", }}>Likes: {v.likes}</div>
+                </div>
               </Link>
               </div>)}
      </div>
