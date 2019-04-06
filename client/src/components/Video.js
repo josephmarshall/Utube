@@ -27,7 +27,7 @@ const { video } = this.state
       <div>User who posted it</div>
       <div style={{display: "flex"}}>
         <div>
-          <Comments />
+          <Comments video_id={this.state.video.id} />
         </div>
         <div>
           <OtherVideos />

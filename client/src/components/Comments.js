@@ -1,28 +1,28 @@
 import React from "react"
 import { Form } from 'semantic-ui-react'
 import axios from "axios";
+import { AuthConsumer } from "../providers/AuthProvider";
 
 class Comments extends React.Component{
   state = { comment: '' }
 
   handleSubmit = e => {
     e.preventDefault()
-    const comment = { ...this.state }
-    const { id, video_id } = this.props
-    if ( id && video_id) {
-      axios.put(`api/videos/${video_id}/comments/${id}`, comment)
-      .then( res => {
-        this.props.history.push(`/videos/${video_id}/comments/${id}`)
-      })
-    } else {
+    const u_id = this.props.auth.user.id
+    const  video_id   = this.props.video_id
+    const comment = {...this.state, user_id: u_id, video_id: video_id }
+  
       axios.post(`/api/videos/${video_id}/comments`, comment)
       .then(res => {
         this.props.history.push(`/videos/${video_id}`)
       })
-    }
     
     
-  }
+    } 
+    
+    
+    
+  
 
   handleChange = (e) => {
     this.setState({ comment: e.target.value })
@@ -49,4 +49,12 @@ class Comments extends React.Component{
   }
 }
 
-export default Comments
+const ConnectedComments = (props) => (
+  <AuthConsumer>
+   {auth =>
+    <Comments {...props} auth={auth }/>
+   }
+  </AuthConsumer>
+)
+
+export default ConnectedComments
