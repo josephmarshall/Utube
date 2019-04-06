@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_04_06_163113) do
+=======
+ActiveRecord::Schema.define(version: 2019_04_06_155702) do
+>>>>>>> 240c52b18b471d856c980db705e559bbb0587c0a
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,5 +58,18 @@ ActiveRecord::Schema.define(version: 2019_04_06_163113) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+<<<<<<< HEAD
   add_foreign_key "comments", "users"
+=======
+  create_table "videos", force: :cascade do |t|
+    t.string "title"
+    t.integer "duration"
+    t.string "genre"
+    t.string "description"
+    t.string "trailer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+>>>>>>> 240c52b18b471d856c980db705e559bbb0587c0a
 end
