@@ -10,10 +10,18 @@ class Comments extends React.Component{
     const comment = { ...this.state }
     const { id, video_id } = this.props
     if ( id && video_id) {
-      axios.put(`api/comment`)
+      axios.put(`api/videos/${video_id}/comments/${id}`, comment)
+      .then( res => {
+        this.props.history.push(`/videos/${video_id}/comments/${id}`)
+      })
+    } else {
+      axios.post(`/api/videos/${video_id}/comments`, comment)
+      .then(res => {
+        this.props.history.push(`/videos/${video_id}`)
+      })
     }
     
-    }
+    
   }
 
   handleChange = (e) => {
@@ -21,7 +29,7 @@ class Comments extends React.Component{
   }
 
 
-  render(){
+  render() {
     const  { comment } = this.state
     return(
       <div>
