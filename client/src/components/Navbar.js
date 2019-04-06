@@ -12,16 +12,16 @@ class Navbar extends React.Component {
 
     if (user) {
       return (
-        <Menu.Menu position="right">
-          <Menu.Item>
-            <Button size="mini" color="red">
-              Upload Video
-            </Button>
-          </Menu.Item>
-          <Menu.Item onClick={() => handleLogout(this.props.history)}>
-            <Button icon size="mini" color="red">
-              <Icon name="sign-out" />
-            </Button>
+        <Menu.Menu position='right'>
+            <Menu.Item as={Link} to="/videos/new"> 
+              <Button size="mini" color="red"> Upload Video</Button>
+            </Menu.Item>
+          <Menu.Item
+            onClick={ () => handleLogout(this.props.history) }
+          >
+          <Button icon size="mini" color="red"> 
+            <Icon name="sign-out" />
+          </Button>
           </Menu.Item>
         </Menu.Menu>
       );
