@@ -57,12 +57,12 @@ const { email, } =this.props.auth.user
       <div>{video.user_id}</div>
       <div style={{display: "flex"}}>
         <div style={{width: "75%"}}>
-          <Comments />
+          <Comments video_id={this.state.video.id} />
         </div>
         <div>
           <OtherVideos/>
         </div>
-      </div>
+        </div>
       </>
     )
   }

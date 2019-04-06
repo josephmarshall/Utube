@@ -3,7 +3,6 @@ import { Header, } from 'semantic-ui-react';
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-
 class Home extends React.Component {
   state = { videos: [] }
   
