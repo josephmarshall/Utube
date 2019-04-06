@@ -40,7 +40,7 @@ class Comments extends React.Component{
             />
           <Form.Button color='blue' onClick={this.handleSubmit}>Submit</Form.Button>
             </Form>
-          {this.props.comments.map(c=><Card style={{ height: '4em'}}>{c.body}{c.user_id === user_id && 
+          {this.props.comments.map(c=><Card style={{ height: '4em', width: "100%"}}>{c.body}{c.user_id === user_id && 
 
           <div><Button onClick={()=>editComment(c.id)}>edit</Button><Button onClick={(
           )=>deleteComment(c.id)
