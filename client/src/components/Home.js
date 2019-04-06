@@ -25,7 +25,7 @@ class Home extends React.Component {
                 </div>
                 {v.title}
               </Link>)}
-        Porsche GT2RS
+        Porsche 
      </div>
     
      </>
