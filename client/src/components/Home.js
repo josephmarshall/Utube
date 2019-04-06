@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, } from 'semantic-ui-react';
+import { Header,  } from 'semantic-ui-react';
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
@@ -17,7 +17,7 @@ class Home extends React.Component {
       <>
         <div style={{display: "flex", flexWrap: "wrap"}}>
           {this.state.videos.map(v=> 
-            <div style={{margin: "20px", zIndex: "2", border: "solid black 1px", textAlign: "Center"}}> 
+            <div key={this.state.videos.id} style={{margin: "20px", zIndex: "2", border: "solid black 1px", textAlign: "Center"}}> 
               <Link to={`/video/${v.id}`}>    
                 <div style={{}}>
                   <iframe src={v.description} controls={0} style={{zIndex: "1"}} >
