@@ -21,9 +21,13 @@ class Comments extends React.Component{
     this.setState({ body: e.target.value })
   }
 
+  
+
 
   render() {
+    const {deleteComment, editComment} = this.props
     const  { body } = this.state
+    const user_id = this.props.auth.user.id
     return(
       <div>
         <Form onSubmit={this.handleSubmit} style={{ position: 'relative', width: '20em',}}>
@@ -33,17 +37,12 @@ class Comments extends React.Component{
             placeholder='Comment'
             value={body}
             onChange={this.handleChange}
-            required
           />
           <Form.Button color='blue' onClick={this.handleSubmit}>Submit</Form.Button>
-          
-              {this.props.comments.map(c=>
-              <Card style={{ height: '4em'}}>
-              {c.body}
+          {this.props.comments.map(c=><Car style={{ height: '4em'}}>{c.body}{c.user_id === user_id && <div><Button onClick={()=>editComment(c.id)}>edit</Button><Button onClick={(
+          )=>deleteComment(c.id)
+          }>delete</Button></div>}</div>)}
 
-              </Card>)}
-           
-           
         </Form>
       </div>
     )
