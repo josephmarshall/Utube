@@ -30,6 +30,16 @@ class Video extends React.Component{
   addComment = (comment) => {
     this.setState({comments: [...this.state.comments, comment]})
   }
+
+  deleteComment = (id) => {
+    axios.delete(`/api/videos/${parseInt(this.props.match.params.id)}/comments/${id}`)
+    .then(res=>this.setState({comments: this.state.comments.filter(c=> c.id !== id) }))
+  }
+
+  editComment = (id) => {
+    
+  }
+
   render(){
 
 const { email, } =this.props.auth.user
@@ -64,7 +74,7 @@ const { video, comments } = this.state
       <div>{video.user_id}</div>
       <div style={{display: "flex"}}>
         <div style={{width: "75%"}}>
-          <Comments video_id={parseInt(this.state.video.id)} addComment={this.addComment} comments={comments} />
+          <Comments video_id={parseInt(this.state.video.id)} addComment={this.addComment} comments={comments} deleteComment={this.deleteComment} editComment={this.editComment} />
         </div>
         <div>
           <OtherVideos/>
