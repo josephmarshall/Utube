@@ -14,7 +14,6 @@ class Video extends React.Component{
 
   render(){
 const { video } = this.state
-      const testVideoUrl = "https://www.youtube.com/embed/xIqza5kdmdQ"
 
     return(
       <>
@@ -23,8 +22,8 @@ const { video } = this.state
       frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
       allowfullscreen></iframe>
       </div>
-      <div>Title with likes</div>
-      <div>User who posted it</div>
+      <div>{video.title}</div>
+      <div>{video.user_id}</div>
       <div style={{display: "flex"}}>
         <div>
           <Comments />
