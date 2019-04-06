@@ -24,8 +24,11 @@ class Home extends React.Component {
                   <iframe src={v.description} controls={0} style={{zIndex: "1"}} >
                   </iframe>
                 </div>
-                <div style={{fontSize: "2em", fontWeight: "bold", padding: "10px"}}>
-                {v.title}
+                <div style={{display: "flex", width: "100%"}}>
+                <div style={{fontSize: "2em", fontWeight: "bold", padding: "10px", color: "black"}}>
+                {v.title} 
+                </div>
+                <div style={{fontSize: "1em", color: "black", }}>Likes: {v.likes}</div>
                 </div>
               </Link>
               </div>)}
