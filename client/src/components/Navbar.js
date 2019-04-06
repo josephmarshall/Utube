@@ -11,7 +11,7 @@ class Navbar extends React.Component {
     if (user) {
       return (
         <Menu.Menu position='right'>
-            <Menu.Item>
+            <Menu.Item as={Link} to="/videoform"> 
               <Button size="mini" color="red"> Upload Video</Button>
             </Menu.Item>
           <Menu.Item
