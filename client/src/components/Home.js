@@ -1,8 +1,34 @@
 import React from 'react';
 import { Header, } from 'semantic-ui-react';
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 
-const Home = () => (
-  <Header as="h3" textAlign="center">Devise Auth App</Header>
-)
 
+class Home extends React.Component {
+  state = { videos: ''}
+  
+  componentDidMount() {
+    axios.get(`api/video`)
+      .then(res =>
+        this.setState({ video: res.data }))
+  }
+
+  render() {
+    return (
+      <>
+     <div >
+        <Link >
+            <div>
+                <img src='https://greenglobaltravel.com/wp-content/uploads/Guanaco_Patagonia-edited.jpg'>
+                </img>
+            </div>
+        </Link>
+        Porsche GT2RS
+     </div>
+    
+     </>
+  )
+}
+
+}
 export default Home;
