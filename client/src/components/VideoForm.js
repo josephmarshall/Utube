@@ -4,7 +4,7 @@ import { AuthConsumer, } from "../providers/AuthProvider";
 import { Button, Form, Header, } from 'semantic-ui-react';
 
 class VideoForm extends React.Component {
-    state = { title: "", description: "", }
+    state = { title: "", description: "", trailer: ""}
 
     handleChange = (e, { name, value, }) => this.setState({ [name]: value,});
 
@@ -18,7 +18,7 @@ class VideoForm extends React.Component {
     }
 
     render() {
-        const { title, description, } = this.state
+        const { title, description, trailer, } = this.state
         return(
             <>
             <div style={{ margin:"20px", }}>
@@ -40,6 +40,13 @@ class VideoForm extends React.Component {
                         placeholder="Link"
                         name="description"
                         value={description}
+                        onChange={this.handleChange}
+                    />
+                    <Form.Input 
+                        required
+                        placeholder="Video Description"
+                        name="trailer"
+                        value={trailer}
                         onChange={this.handleChange}
                     />
                 </Form.Group>

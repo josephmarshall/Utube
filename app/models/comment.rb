@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
   
   belongs_to :user
-  belongs_to :comments
+  belongs_to :video
 end
