@@ -13,8 +13,8 @@ class VideoForm extends React.Component {
         const u_id = this.props.auth.user.id
         const {match: { params: { id } }, history: { push } } = this.props
         const video = { ...this.state, user_id: u_id }
-        axios.post('/api/videos/create', video)
-            .then( res => push('/'))
+        axios.post('/api/videos', video)
+            .then( res => push(`/videos/${res.data.id}`))
     }
 
     render() {
