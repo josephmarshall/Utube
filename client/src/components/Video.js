@@ -7,12 +7,15 @@ import { Icon, Card, Header, Button } from 'semantic-ui-react'
 
 class Video extends React.Component{
 
-  state = {video: {}}
+  state = {video: {}, comments: []}
 
   componentDidMount(){
     axios.get(`/api/videos/${parseInt(this.props.match.params.id)}`)
       .then(res=> this.setState({video: res.data}))
-  }
+
+      axios.get(`/api/videos/${parseInt(this.props.match.params.id)}/comments`)
+      .then(res=> this.setState({comments: res.data}))      
+    }
 
   likeArrow = () => {
     axios.put(`/api/videos/${parseInt(this.props.match.params.id)}`, {likes: this.state.video.likes + 1})
@@ -24,9 +27,13 @@ class Video extends React.Component{
       .then(res => this.setState({video: {...this.state.video, likes: this.state.video.likes - 1}}))
   }
 
+  addComment = (comment) => {
+    this.setState({comments: [...this.state.comments, comment]})
+  }
   render(){
-const { video } = this.state
+
 const { email, } =this.props.auth.user
+const { video, comments } = this.state
 
     return(
       <>
@@ -57,7 +64,7 @@ const { email, } =this.props.auth.user
       <div>{video.user_id}</div>
       <div style={{display: "flex"}}>
         <div style={{width: "75%"}}>
-          <Comments video_id={this.state.video.id} />
+          <Comments video_id={parseInt(this.state.video.id)} addComment={this.addComment} comments={comments} />
         </div>
         <div>
           <OtherVideos/>
