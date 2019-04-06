@@ -29,7 +29,7 @@ const { video } = this.state
           <Comments />
         </div>
         <div>
-          <OtherVideos />
+          <OtherVideos/>
         </div>
       </div>
       </>
