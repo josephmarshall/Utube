@@ -5,24 +5,26 @@ import { Link } from 'react-router-dom'
 
 
 class Home extends React.Component {
-  state = { videos: ''}
+  state = { videos: [] }
   
   componentDidMount() {
-    axios.get(`api/video`)
+    axios.get(`api/videos`)
       .then(res =>
-        this.setState({ video: res.data }))
+        this.setState({ videos: res.data }))
   }
 
   render() {
     return (
       <>
-     <div >
-        <Link >
-            <div>
-                <img src='https://greenglobaltravel.com/wp-content/uploads/Guanaco_Patagonia-edited.jpg'>
-                </img>
-            </div>
-        </Link>
+        <div >
+          {this.state.videos.map(v=> 
+              <Link to={`/video/${v.id}`}>
+                <div>
+                  <img src={v.description}>
+                  </img>
+                </div>
+                {v.title}
+              </Link>)}
         Porsche GT2RS
      </div>
     

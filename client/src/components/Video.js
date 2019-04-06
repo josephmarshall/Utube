@@ -1,16 +1,25 @@
 import React from 'react'
 import OtherVideos from './OtherVideos'
 import Comments from './Comments'
+import axios from 'axios';
 
 class Video extends React.Component{
-  render(){
 
-    const testVideoUrl = "https://www.youtube.com/embed/xIqza5kdmdQ"
+  state = {video: {}}
+
+  componentDidMount(){
+    axios.get(`/api/videos/${parseInt(this.props.match.params.id)}`)
+      .then(res=> this.setState({video: res.data}))
+  }
+
+  render(){
+const { video } = this.state
+      const testVideoUrl = "https://www.youtube.com/embed/xIqza5kdmdQ"
 
     return(
       <>
       <div>
-      <iframe width="560" height="315" src={testVideoUrl}
+      <iframe width="560" height="315" src={video.description}
       frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
       allowfullscreen></iframe>
       </div>
