@@ -2,6 +2,7 @@ import React from 'react'
 import OtherVideos from './OtherVideos'
 import Comments from './Comments'
 import axios from 'axios';
+import { Card,} from "semantic-ui-react"
 
 class Video extends React.Component{
 
@@ -23,7 +24,7 @@ const { video } = this.state
       frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
       allowfullscreen></iframe>
       </div>
-      <div>Title with likes</div>
+      <div>{video.title}</div>
       <div>User who posted it</div>
       <div style={{display: "flex"}}>
         <div>

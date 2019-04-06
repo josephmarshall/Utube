@@ -10,10 +10,10 @@ class VideoForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+        debugger
         const u_id = this.props.auth.user.id
         const {match: { params: { id } }, history: { push } } = this.props
         const video = { ...this.state, user_id: u_id }
-        debugger
         axios.post('/api/videos', video)
             .then( res => push("/"))
     }
