@@ -3,6 +3,7 @@ import { Header, } from 'semantic-ui-react';
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
+
 class Home extends React.Component {
   state = { videos: ''}
   
@@ -11,6 +12,13 @@ class Home extends React.Component {
       .then(res =>
         this.setState({ video: res.data }))
   }
+
+const Home = () => (
+  <>
+  <Header as="h3" textAlign="center">Devise Auth App</Header>
+  </>
+)
+
 
 
   render() {
