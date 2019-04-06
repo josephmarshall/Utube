@@ -16,16 +16,17 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <div >
+        <div style={{display: "flex"}}>
           {this.state.videos.map(v=> 
-              <Link to={`/video/${v.id}`}>
-                <div>
+            <div style={{margin: "20px"}}> 
+              <Link to={`/video/${v.id}`}>    
+                <div style={{width: "190px", height: "160px", border: "solid black 1px"}}>
                   <img src={v.description}>
                   </img>
                 </div>
                 {v.title}
-              </Link>)}
-        Porsche 
+              </Link>
+              </div>)}
      </div>
     
      </>
