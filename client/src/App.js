@@ -9,6 +9,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import { Switch, Route, } from 'react-router-dom';
 import { Container, } from "semantic-ui-react";
 import Video from './components/Video'
+import VideoForm from "./components/VideoForm"
 
 const App = () => (
   <>
@@ -18,6 +19,7 @@ const App = () => (
         <Switch>
           <ProtectedRoute exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/videos/new" component={VideoForm} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/video/:id" component={Video} />
           <Route component={NoMatch} />
