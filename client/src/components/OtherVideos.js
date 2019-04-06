@@ -6,8 +6,9 @@ class OtherVideos extends React.Component {
   state = { videos: [] }
   
   
+  
   componentDidMount() {
-    axios.get(`api/videos`)
+    axios.get(`/api/videos`)
       .then(res =>
         this.setState({ videos: res.data }))
   }
@@ -24,7 +25,7 @@ class OtherVideos extends React.Component {
                 </div>
                 {v.title}
               </Link>)}
-
+              other videos
           </div>
     
       </>
