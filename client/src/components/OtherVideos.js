@@ -17,15 +17,19 @@ class OtherVideos extends React.Component {
     return (
       <>
         <div >
-          {this.state.videos.map(v=> 
-              <Link to={`/video/${v.id}`}>
-                <div>
-                  <img src={v.description}>
-                  </img>
+          <h1>Other Videos</h1>
+        {this.state.videos.map(v=> 
+            <div style={{margin: "20px", zIndex: "2", border: "solid black 1px", textAlign: "Center"}}> 
+              <Link to={`/video/${v.id}`}>    
+                <div style={{}}>
+                  <iframe src={v.description} controls={0} style={{zIndex: "1"}} >
+                  </iframe>
                 </div>
+                <div style={{fontSize: "2em", fontWeight: "bold", padding: "10px"}}>
                 {v.title}
-              </Link>)}
-              other videos
+                </div>
+              </Link>
+              </div>)}
           </div>
     
       </>

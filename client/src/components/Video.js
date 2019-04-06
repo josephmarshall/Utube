@@ -18,14 +18,14 @@ const { video } = this.state
     return(
       <>
       <div>
-      <iframe width="560" height="315" src={video.description}
+      <iframe width="100%" height="60%" src={video.description}
       frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
       allowfullscreen></iframe>
       </div>
       <div>{video.title}</div>
       <div>{video.user_id}</div>
       <div style={{display: "flex"}}>
-        <div>
+        <div style={{width: "75%"}}>
           <Comments />
         </div>
         <div>
