@@ -2,7 +2,8 @@ import React from 'react'
 import OtherVideos from './OtherVideos'
 import Comments from './Comments'
 import axios from 'axios';
-import { Icon } from 'semantic-ui-react'
+import { AuthConsumer, } from "../providers/AuthProvider"
+import { Icon, Card, Header, Button } from 'semantic-ui-react'
 
 class Video extends React.Component{
 
@@ -25,6 +26,7 @@ class Video extends React.Component{
 
   render(){
 const { video } = this.state
+const { email, } =this.props.auth.user
 
     return(
       <>
@@ -33,14 +35,25 @@ const { video } = this.state
       frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
       allowfullscreen></iframe>
       </div>
-      <div style={{display: "flex", justifyContent:"space-between"}}>
-        <div>{video.title}</div>
-        <div style={{display: "flex"}}>
-          <Icon name="up arrow" color="green" onClick={()=>this.likeArrow()}/>
-          <Icon name="down arrow" color="red" onClick={()=>this.dislikeArrow()}/>
-          <div>Likes: {video.likes}</div>
+      <Card style={{width:"1190px"}}>
+        <Card.Content>
+        <div style={{display: "flex",}}>
+        <Card.Header as="h2">{video.title}</Card.Header>
         </div>
-      </div>
+        <div style={{textAlign:"right"}}>
+          <Header as="h3">Likes: {video.likes}</Header >
+          <Icon size="large" name="up arrow" color="green" onClick={()=>this.likeArrow()}/>
+          <Icon size="large" name="down arrow" color="red" onClick={()=>this.dislikeArrow()}/>
+        </div>
+        </Card.Content>
+        <Card.Content extra>
+          <Header>{email}</Header>
+          <Button color="red" style={{marginLeft:"70em"}} >Add Friend</Button>
+        </Card.Content>
+        <Card.Content extra>
+          <Header as="h4">{video.trailer} </Header>
+        </Card.Content>
+        </Card>
       <div>{video.user_id}</div>
       <div style={{display: "flex"}}>
         <div style={{width: "75%"}}>
@@ -55,4 +68,13 @@ const { video } = this.state
   }
 }
 
-export default Video
+const ConnectedVideo = (props) => (
+  <AuthConsumer>
+      {auth =>
+          <Video {...props} auth={auth} />
+      }
+  </AuthConsumer>
+)
+
+
+export default ConnectedVideo
