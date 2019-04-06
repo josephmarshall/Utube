@@ -1,5 +1,5 @@
 import React from "react"
-import { Form, Button } from 'semantic-ui-react'
+import { Form, Card, Button } from 'semantic-ui-react'
 import axios from "axios";
 import { AuthConsumer } from "../providers/AuthProvider";
 
@@ -39,9 +39,10 @@ class Comments extends React.Component{
             onChange={this.handleChange}
           />
           <Form.Button color='blue' onClick={this.handleSubmit}>Submit</Form.Button>
-          {this.props.comments.map(c=><div>{c.body}{c.user_id === user_id && <div><Button onClick={()=>editComment(c.id)}>edit</Button><Button onClick={(
+          {this.props.comments.map(c=><Car style={{ height: '4em'}}>{c.body}{c.user_id === user_id && <div><Button onClick={()=>editComment(c.id)}>edit</Button><Button onClick={(
           )=>deleteComment(c.id)
           }>delete</Button></div>}</div>)}
+
         </Form>
       </div>
     )
