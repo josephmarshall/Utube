@@ -12,6 +12,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_04_06_163113) do
 =======
 ActiveRecord::Schema.define(version: 2019_04_06_155702) do
@@ -22,6 +23,10 @@ ActiveRecord::Schema.define(version: 2019_04_06_163113) do
 
 >>>>>>> cbb1f8bacd190efa27a40568a74f1ecbbca975e7
 
+=======
+ActiveRecord::Schema.define(version: 2019_04_06_163113) do
+
+>>>>>>> b457059845c61a8ec284dd4a7520f5a8792fb541
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -81,7 +86,11 @@ ActiveRecord::Schema.define(version: 2019_04_06_163113) do
   end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 240c52b18b471d856c980db705e559bbb0587c0a
 =======
 >>>>>>> cbb1f8bacd190efa27a40568a74f1ecbbca975e7
+=======
+  add_foreign_key "comments", "users"
+>>>>>>> b457059845c61a8ec284dd4a7520f5a8792fb541
 end
