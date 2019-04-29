@@ -5,6 +5,10 @@ gem "rails", "~> 5.2.3"
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 # Use postgresql as the database for Active Record
 gem "pg", ">= 0.18", "< 2.0"
+gem 'jbuilder', '~> 2.5'
+gem 'bcrypt', '~> 3.1.7'
+gem 'mini_magick', '~> 4.8'
+gem 'capistrano-rails', group: :development
 # Use Puma as the app server
 gem "puma", "~> 3.11"
 # Reduces boot times through caching; required in config/boot.rb
