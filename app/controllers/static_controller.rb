@@ -6,4 +6,3 @@ class StaticController < Rails::ApplicationController
   end
 end
 
-#
